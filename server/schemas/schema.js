@@ -101,25 +101,18 @@ const RootQuery = new GraphQLObjectType({
         return Breed.findOne({ breed: args.breed });
       },
     },
-    breedSearch: {
-      type: BreedType,
+    dogsByBreed: {
+      type: new GraphQLList(DogType),
       args: { breed: { type: GraphQLString } },
       resolve(parent, args) {
-        return async () =>
-          await Breed.aggregate([
-            {
-              $search: {
-                autocomplete: {
-                  query: `${args.breed}`,
-                  path: "breed",
-                  fuzzy: {
-                    maxEdits: 2,
-                    prefixLength: 3,
-                  },
-                },
-              },
-            },
-          ]).toArray();
+        return Dog.find({ breed: args.breed });
+      },
+    },
+    facetSearch: {
+      type: new GraphQLList(DogType),
+      args: { age: { type: GraphQLList(GraphQLInt) },breed: { type: GraphQLList(GraphQLString) }},
+      resolve(parent, args) {
+        return Dog.find(args);
       },
     },
   },
