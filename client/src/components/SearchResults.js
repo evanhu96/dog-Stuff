@@ -10,18 +10,19 @@ export default function SearchResults() {
   const [dogCategory, setDogCategory] = useState([]);
   const [house, setHouse] = useState([]);
   const [grooming, setGrooming] = useState([]);
-  //   const { loading, error, data } = useQuery(GET_DOGS);
+  const { loading, error, data } = useQuery(GET_DOGS);
+
   //   useEffect(()=>{
   //     console.log('hey');
   //     console.log(findObject);
   //   })
-  const [getDog, { loading, error, data }] = useLazyQuery(GET_DOGS);
+  // const [getDog, { loading, error, data }] = useLazyQuery(GET_DOGS);
 
-  useEffect(() => {
-    getDog({ variables: { breed: ["Saluki", "Poodle"], age: [5, 4] } });
-    setFindObject(data);
-    return <p>hey</p>;
-  }, []);
+  // useEffect(() => {
+  //   getDog({ variables: { breed: ["Saluki", "Poodle"], age: [5, 4] } });
+  //   setFindObject(data);
+  //   return <p>hey</p>;
+  // }, []);
 
   // use graphql
 

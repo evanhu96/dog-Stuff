@@ -12,12 +12,14 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [current, setCurrent] = useState("About");
+  const [search,setSearch] = useState(false)
+  const [category, setCategory] = useState("");
+
   return (
     <>
       <ApolloProvider client={client}>
         <section style={{ backgroundColor: "blue" }}>
-          <SearchResults  id="results"/>
+          <SearchResults/>
         </section>
       </ApolloProvider>
     </>

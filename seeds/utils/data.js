@@ -1,5 +1,3 @@
-const { Dog,Breed } = require("../models");
-
 const names = [
     "	Godzilla	"	,
 "	Luke	"	,
@@ -154,7 +152,6 @@ const getRandomAge = () =>{
 module.exports = {
     getRandomName,
     getRandomAge,
-
 
   };
   
