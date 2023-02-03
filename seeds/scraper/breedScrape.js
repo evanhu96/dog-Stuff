@@ -1,5 +1,5 @@
-const connection = require("../config/connection");
-const { Breed, Dog } = require("../models");
+const connection = require("../../server/config/connection");
+const { Breed, Dog } = require("../../server/models");
 const axios = require("axios");
 const cheerio = require("cheerio");
 
