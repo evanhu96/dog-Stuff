@@ -10,14 +10,14 @@ export const  GET_DOGS= gql`
       }
     }
   `;
-export const  GET_DOGS_BY_CATEGORY= gql`
-    query getDogs {
-      facetSearch(category: "Toy") {
-        id
-        breed
-        name
-        age
-      }
-    }
-  `;
+// export const  GET_DOGS_BY_CATEGORY= gql`
+//     query getDogs {
+//       facetSearch(category: "Toy") {
+//         id
+//         breed
+//         name
+//         age
+//       }
+//     }
+//   `;
 

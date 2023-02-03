@@ -1,19 +1,22 @@
 const Dog = require("../models/Dog");
 const Breed = require("../models/Breed");
 
+async function test(){
+  // a = Dog.find({breed:'Saluki'})
+  // await a.forEach((i) => console.log(i));
+}
 // create object with use state based on all selected parameters
 // to be put into a search facetsearch
 // then a search function for typing
+test()
 const {
   GraphQLObjectType,
   GraphQLID,
   GraphQLString,
   GraphQLInt,
-  GraphQLFloat,
   GraphQLSchema,
   GraphQLList,
   GraphQLNonNull,
-  GraphQLEnumType,
 } = require("graphql");
 
 // Dog Type
@@ -24,7 +27,6 @@ const DogType = new GraphQLObjectType({
     breed: { type: GraphQLString },
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
-    imgLink: { type: GraphQLString },
   }),
 });
 
@@ -60,6 +62,9 @@ const BreedType = new GraphQLObjectType({
       type: GraphQLString,
     },
     lifeSpan: {
+      type: GraphQLString,
+    },
+    imgLink: {
       type: GraphQLString,
     },
   }),
@@ -112,7 +117,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(DogType),
       args: { age: { type: GraphQLList(GraphQLInt) },breed: { type: GraphQLList(GraphQLString) }},
       resolve(parent, args) {
-        return Dog.find(args);
+        return Dog.find({age : args.age});
       },
     },
   },
